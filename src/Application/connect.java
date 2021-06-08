@@ -28,11 +28,11 @@ public class connect{
         }
         return conn;
     }
-	  public void selectt() throws SQLException {
+	  public void selectt(int i) throws SQLException {
 		  
 		  String sql = 
 				 " SELECT products.ProductID, Products.ProductName, Bons.BonID , Bons.Suppliername FROM products JOIN Bon_produit on (products.ProductID=Bon_produit.ProductID  )"
-				 + "JOIN Bons on (Bons.BonID=Bon_produit.BonID) WHERE Bons.BonID= 3";
+				 + "JOIN Bons on (Bons.BonID=Bon_produit.BonID) WHERE Bons.BonID= "+i;// i= BonID
 				 
 			Connection conn = connect();
 			Statement statement = conn.createStatement();
@@ -90,7 +90,7 @@ public class connect{
        app.insert(1, 2);
        app.insert(1, 1);
        app.insert(2, 1);
-        app.selectt(); 
+        app.selectt(2);//i=2 bonID 
     }
 }
 
